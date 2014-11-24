@@ -71,4 +71,47 @@ public class IntegerTreeNode {
             return left.getMin();
         }
     }
+
+    public String toString() {
+        String Output = "";
+
+        if (this.left != null && this.right != null) {
+            Output = Output + "[" + value + "L[" + left.toString() + "]R[" + right.toString() + "]";
+        }
+        if (this.left != null && this.right == null) {
+            Output = Output + value + "L[" + left.toString() + "]R[]";
+        }
+        if (this.right != null  && this.left == null) {
+            Output = Output + value + "L[]R[" + right.toString() + "]";
+        }
+        if (this.left == null && this.right == null) {
+            Output = Output + value + "R[]L[]";
+        }
+        return Output;
+    }
+
+    public int getDepth(int depth) {
+
+        if (this.left != null && this.right != null) {
+            depth++;
+            if (this.left.getDepth(depth) > this.right.getDepth(depth)) {
+                return this.left.getDepth(depth);
+            }
+            else {
+                return this.right.getDepth(depth);
+            }
+        }
+        else if (this.left != null && this.right == null) {
+            depth++;
+            return this.left.getDepth(depth);
+        }
+        else if (this.right != null  && this.left == null) {
+            depth++;
+            return this.right.getDepth(depth);
+        }
+        else {
+            return depth;
+        }
+    }
 }
+

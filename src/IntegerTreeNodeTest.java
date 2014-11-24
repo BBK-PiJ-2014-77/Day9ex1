@@ -3,7 +3,6 @@
  */
 public class IntegerTreeNodeTest {
 
-    IntegerTreeNode RootIntegerTreeNode;
 
     public static void main (String[] args) {
 
@@ -21,6 +20,8 @@ public class IntegerTreeNodeTest {
      System.out.println("The highest value in IT1 is " + IT1.getMax());
      System.out.println("The lowest value in IT1 is " + IT1.getMin());
 
+     System.out.println(IT1.toString());
+     System.out.println(IT1.getDepth(0));
 
     }
 
